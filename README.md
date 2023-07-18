@@ -1,4 +1,4 @@
-# Uwuify
+# Uwuifier
 
 It's an uwuifier what more is there to say
 
