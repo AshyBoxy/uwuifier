@@ -26,7 +26,6 @@ repositories {
 
 dependencies {
 	implementation "xyz.ashyboxy:uwuifier:1.0.2"
-	include "xyz.ashyboxy:uwuifier:1.0.2"
 }
 ```
 
