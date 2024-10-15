@@ -8,16 +8,16 @@ import java.util.regex.Pattern;
  * Provides an uwuify method
  */
 public abstract class Uwuifier {
-    private static Random rand = new Random();
-    private static Pattern puncPattern = Pattern.compile("([!,?\\.])([ \\n])?");
-    private static Pattern wordPattern = Pattern.compile("(\\S+?)([ \\n!,?\\.]|\\z)");
+    private static final Random rand = new Random();
+    private static final Pattern puncPattern = Pattern.compile("([!,?\\.])([ \\n])?");
+    private static final Pattern wordPattern = Pattern.compile("(\\S+?)([ \\n!,?\\.]|\\z)");
     // we add to the end seperately, so don't let this match a final newline
-    private static Pattern newLinePattern = Pattern.compile("\\n(?!\\z)");
+    private static final Pattern newLinePattern = Pattern.compile("\\n(?!\\z)");
 
-    private static HashMap<String, Punc> puncs = new HashMap<>();
-    private static HashMap<String, String> words = new HashMap<>();
+    private static final HashMap<String, Punc> puncs = new HashMap<>();
+    private static final HashMap<String, String> words = new HashMap<>();
 
-    private static String[] kaomoji = {
+    private static final String[] kaomoji = {
             ":3", "ÚwÚ", ">-<", "(* ^ ω ^)",
             "o.O", "(U ﹏ U)", "mya", "(✿oωo)",
             ";w;", "*blushes*", "uwu", "owo"
