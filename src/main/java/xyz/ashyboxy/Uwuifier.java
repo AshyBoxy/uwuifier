@@ -45,9 +45,10 @@ public abstract class Uwuifier {
      * e.g. "Hello, world!" could become "Hewwo wowwd!1! :3"
      *
      * @param str The string to uwuify
+     * @param rand java.util.Random to use
      * @return The uwuified string
      */
-    public static String uwuify(String str) {
+    public static String uwuify(String str, Random rand) {
         str = wordPattern.matcher(str).replaceAll((match) -> {
             String r = "";
             if ((r = words.get(match.group(1).toLowerCase())) != null) {
@@ -111,6 +112,31 @@ public abstract class Uwuifier {
             str += " " + kaomoji[rand.nextInt(kaomoji.length)];
 
         return str;
+    }
+
+    /**
+     * Takes a string and returns an uwuified version of it,
+     * e.g. "Hello, world!" could become "Hewwo wowwd!1! :3"
+     *
+     * @param str The string to uwuify
+     * @return The uwuified string
+     */
+    public static String uwuify(String str) {
+        return uwuify(str, rand);
+    }
+
+    /**
+     * Uwuifies `str`, using its hash to seed the random generator
+     * <p>
+     * This is not guaranteed to be consistent between releases
+     *
+     * @param str The string to uwuify
+     * @return The uwuified string
+     */
+    public static String uwuifyHashed(String str) {
+        // TODO: should a different hash function be used?
+        final Random r = new Random(str.hashCode());
+        return uwuify(str, r);
     }
 
     private static String puncGen(String punc, String alt, int maxLen, int minLen, float altChance) {
