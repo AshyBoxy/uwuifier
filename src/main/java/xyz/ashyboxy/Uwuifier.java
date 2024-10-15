@@ -141,14 +141,14 @@ public abstract class Uwuifier {
 
     private static String puncGen(String punc, String alt, int maxLen, int minLen, float altChance) {
         int count = rand.nextInt(maxLen - minLen) + minLen;
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i < count; i++) {
             if (rand.nextFloat() < altChance)
-                result += alt;
+                result.append(alt);
             else
-                result += punc;
+                result.append(punc);
         }
-        return result;
+        return result.toString();
     }
 
     private static class Punc {
